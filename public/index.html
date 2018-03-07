@@ -1,0 +1,42 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <!-- <link rel="stylesheet" href="/style.css"> -->
+    <title>Nomad</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  </head>
+  <body>
+    <div id="overview"></div>
+    <div id="recommendations"></div>
+    <div id="reviews"></div>
+    <div id="nearby"></div>
+    <div id="qa"></div>
+    <!-- see: https://reactjs.org/docs/react-without-jsx.html -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+    <script src="http://localhost:3001/bundle.js"></script>
+    <script src="http://localhost:3002/bundle.js"></script>
+    <script src="http://localhost:3004/bundle.js"></script>
+    <script src="http://localhost:3005/bundle.js"></script>
+    <script>
+      const id = Number(window.location.pathname.split('/')[2]);
+      ReactDOM.render(
+        React.createElement(Reviews, {id: id} ),
+        document.getElementById("reviews")
+      );
+      ReactDOM.render(
+        React.createElement(Overview, {id: id} ),
+        document.getElementById("overview")
+      );
+      ReactDOM.render(
+        React.createElement(Recommendations, {id: id} ),
+        document.getElementById("recommendations")
+      );
+      ReactDOM.render(
+        React.createElement(QuestionsAndAnswers, {id: id} ),
+        document.getElementById("qa")
+      );
+    </script>
+  </body>
+</html>
